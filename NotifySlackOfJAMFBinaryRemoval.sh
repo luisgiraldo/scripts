@@ -12,7 +12,7 @@ compHostname=`/bin/hostname`
 #Get Computer Serial Number
 compSerial=`/usr/sbin/system_profiler SPHardwareDataType | awk '/Serial Number/ { print $4; }'`
 
-#Generate a link for JSS Search
+#Generate a link for JSS Search - Please update with your own JSS URL
 JSSSearchURL="https://yourjssurl.example.com:8443/computers.html?queryType=Computers&query="$compSerial
 
 #Get Watchman Monitoring ID
@@ -33,7 +33,7 @@ msgTitle="*JAMF Framework removed from computer!*"
 #Body of message for Slack notification
 msgBody="Serial: <"$JSSSearchURL"|"$compSerial">"
 
-#URL of Slack Incoming WebHook - https://my.slack.com/services/new/incoming-webhook/
+#URL of Slack Incoming WebHook - https://my.slack.com/services/new/incoming-webhook/ - Please update with your own WebHook URL
 slackUrl="https://hooks.slack.com/services/randomstring/randomstring/randomstring"
 
 #URL of Image to use for Notification Icon - use a square image
@@ -48,22 +48,22 @@ read -d '' payLoad << EOF
                 "fallback": "Please review the details below:",
                 "color": "warning",
                 "fields": [
-                	{
-                    	"title": "Hostname:",
-                    	"value": "${compHostname}",
-                    	"short": true
-                	},
-                	{
-						"title": "Serial:",
-						"value": "${compSerial}",
-						"short": true
-                	},
                     {
-						"title": "View in:",
-						"value": "<${JSSSearchURL}|JSS> • <${MonkeyBoxURL}|Monkey Box> • <${WMComputer}|Watchman Monitoring>",
-						"short": false
+                        "title": "Hostname:",
+                        "value": "${compHostname}",
+                        "short": true
+                    },
+                    {
+                        "title": "Serial:",
+                        "value": "${compSerial}",
+                        "short": true
+                    },
+                    {
+                        "title": "View in:",
+                        "value": "<${JSSSearchURL}|JSS> • <${MonkeyBoxURL}|Monkey Box> • <${WMComputer}|Watchman Monitoring>",
+                        "short": false
                     }
-                	]
+                    ]
             }
         ]
     }
