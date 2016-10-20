@@ -26,17 +26,17 @@ echo "Total records = ${recordqty}"
 
 #Zero the counter
 counter="0"
-duplicates=[]
 
 while read col1 col2
 do
 	counter=$[$counter+1]
 	apiData="<computer><general><name>${col1}</name></general></computer>"
-	output=`curl -sSkiu ${apiuser}:${apipass} "${jamfProURL}/${apiURL}/${col2}" \
+	curl -sSkiu ${apiuser}:${apipass} "${jamfProURL}/${apiURL}/${col2}" \
 	-H "Content-Type: text/xml" \
 	-d "${xmlHeader}${apiData}" \
-	-X PUT`
+	-X PUT > /dev/null
+	echo "Updated ${col2} name to ${col1}"
 done < "${filepath}"
-echo "Finished!"
+echo "${counter} record/s updated!"
 #Set the internal file separator back to its original value
 IFS=$OLDIFS
