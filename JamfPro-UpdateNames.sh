@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Name: Jamf Pro Update Names.sh
+# Name: JamfPro-UpdateNames.sh
 # Date: 2016/10/20
 # Author: Luis Giraldo (luis@ook.co)
 # Version: 1.0
