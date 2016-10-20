@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Name: 03a-createcomputers.sh
+# Name: JamfPro-CreateComputers.sh
 # Date: 2016/10/20
 # Author: Luis Giraldo (luis@ook.co)
 # Version: 1.0
