@@ -29,6 +29,7 @@ do
 	curl -sSkiu ${apiuser}:${apipass} "${jssURL}/${apiURL}" \
 	-H "Content-Type: text/xml" \
 	-d "${xmlheader}${apiData}" \
-	-X POST
+	-X POST > /dev/null
+	echo "Added building ${line}"
 done < "${filepath}"
 echo "Finished!"
