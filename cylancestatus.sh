@@ -7,7 +7,7 @@
 # Purpose: Checks for the current status of the Cylance Agent
 
 # Define location of the Cylance status file
-statusfile="/Library/Application\ Support/Cylance/Desktop/Status.json"
+statusfile="/Library/Application Support/Cylance/Desktop/Status.json"
 
 # Check for existence of the Cylance status file
 if [ -f "$statusfile" ]; then
